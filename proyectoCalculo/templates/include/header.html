@@ -1,0 +1,57 @@
+ <header class="header-custom">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Sección 1: Logo + 3 iconos (3/12) -->
+                <div class="col-md-3 d-flex align-items-center">
+                    <a href="{% url 'main:index'%}" class="me-3">
+                        <i class="fas fa-rocket fa-2x text-primary"></i> <!-- Logo principal -->
+                    </a>
+                    <div class="d-flex">
+                        <a href="#" class="me-2 icon-btn text-secondary"><i class="fas fa-bell"></i></a>
+                        <a href="#" class="me-2 icon-btn text-secondary"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="icon-btn text-secondary"><i class="fas fa-cog"></i></a>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Barra de búsqueda (4/12) -->
+                <div class="col-md-4 my-2 my-md-0">
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control border-0 bg-light" placeholder="Buscar...">
+                        <button class="btn bg-light border-0" type="button">
+                            <i class="fas fa-search text-secondary"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sección 3: 3 botones (5/12) -->
+
+                <div class="col-md-5 d-flex justify-content-end">
+
+                    
+
+                    {% if request.user.is_authenticated and request.user.id %}
+
+                    <a href="{% url 'users:perfil_usuario' user_id=request.user.id %}">
+                        <i class="fas fa-user me-1"></i> Perfil
+                    </a>
+
+                    <a href="{%url 'users:logout'%}">
+                        <i class="fas fa-user me-1"></i> Cerrar Sesion
+                    </a>
+
+                    {%else%}
+
+                    <a href="{%url 'users:register'%}">
+                        <i class="fas fa-user me-1"></i> Regitrarse
+                    </a>
+
+                    <a href="{%url 'users:login'%}">
+                        <i class="fas fa-user me-1"></i> Iniciar Sesion
+                    </a>
+                    
+                    {%endif%}
+                    
+                </div>
+            </div>
+        </div>
+    </header>
