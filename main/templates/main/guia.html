@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Sección de Guía Completa -->
+<section class="py-5 bg-white">
+    <div class="container-fluid">  <!-- Usamos container-fluid para mayor ancho -->
+        <h2 class="text-center mb-5">Guía Completa de Cálculo Diferencial</h2>
+        
+        <!-- Tarjeta 1 - Límites -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="row g-0">
+                <div class="col-md-4 bg-primary text-white p-4 d-flex align-items-center">
+                    <div>
+                        <h3><i class="bi bi-infinity me-2"></i> Límites</h3>
+                        <p class="mb-0">Concepto fundamental para entender derivadas</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Contenido</h4>
+                                <ul>
+                                    <li>Límites laterales</li>
+                                    <li>Continuidad</li>
+                                    <li>Límites al infinito</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Recursos GeoGebra</h4>
+                                <div class="d-flex flex-column gap-2">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Ver construcción interactiva</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Descargar archivo .ggb</a>
+                                    <a href="#" class="btn btn-outline-success btn-sm">Video tutorial</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 2 - Derivadas -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="row g-0">
+                <div class="col-md-4 bg-success text-white p-4 d-flex align-items-center">
+                    <div>
+                        <h3><i class="bi bi-graph-up-arrow me-2"></i> Derivadas</h3>
+                        <p class="mb-0">La esencia del cálculo diferencial</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Contenido</h4>
+                                <ul>
+                                    <li>Definición de derivada</li>
+                                    <li>Reglas de derivación</li>
+                                    <li>Derivadas implícitas</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Recursos GeoGebra</h4>
+                                <div class="d-flex flex-column gap-2">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Ver construcción interactiva</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Descargar archivo .ggb</a>
+                                    <a href="#" class="btn btn-outline-success btn-sm">Video tutorial</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 3 - Aplicaciones -->
+        <div class="card mb-4 border-0 shadow-sm">
+            <div class="row g-0">
+                <div class="col-md-4 bg-warning text-dark p-4 d-flex align-items-center">
+                    <div>
+                        <h3><i class="bi bi-lightbulb me-2"></i> Aplicaciones</h3>
+                        <p class="mb-0">Usos prácticos de las derivadas</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Contenido</h4>
+                                <ul>
+                                    <li>Máximos y mínimos</li>
+                                    <li>Optimización</li>
+                                    <li>Razones de cambio</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Recursos GeoGebra</h4>
+                                <div class="d-flex flex-column gap-2">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Ver construcción interactiva</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Descargar archivo .ggb</a>
+                                    <a href="#" class="btn btn-outline-success btn-sm">Video tutorial</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 4 - Ejercicios -->
+        <div class="card border-0 shadow-sm">
+            <div class="row g-0">
+                <div class="col-md-4 bg-info text-white p-4 d-flex align-items-center">
+                    <div>
+                        <h3><i class="bi bi-journal-check me-2"></i> Ejercicios</h3>
+                        <p class="mb-0">Practica lo aprendido</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Problemas propuestos</h4>
+                                <ul>
+                                    <li>Ejercicios de límites</li>
+                                    <li>Problemas de derivación</li>
+                                    <li>Casos de optimización</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4>Soluciones interactivas</h4>
+                                <div class="d-flex flex-column gap-2">
+                                    <a href="#" class="btn btn-outline-primary btn-sm">Ver soluciones paso a paso</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Plantilla para resolver</a>
+                                    <a href="#" class="btn btn-outline-success btn-sm">Auto-evaluación</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

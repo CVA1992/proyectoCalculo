@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="py-5 bg-light" id="ejercicios">
+    <div class="container">
+        <h2 class="text-center mb-5">Ejercicios Prácticos</h2>
+        <p class="lead text-center mb-5">Resuelve estos problemas interactivos y verifica tus resultados con GeoGebra</p>
+        
+        <!-- Filtros por tema -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="btn-group w-100" role="group">
+                    <button type="button" class="btn btn-outline-primary active">Todos</button>
+                    <button type="button" class="btn btn-outline-primary">Límites</button>
+                    <button type="button" class="btn btn-outline-primary">Derivadas</button>
+                    <button type="button" class="btn btn-outline-primary">Aplicaciones</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 1 -->
+        <div class="card mb-4 shadow-sm ejercicio-card">
+            <div class="card-header bg-primary text-white">
+                <h3 class="h5 mb-0">Ejercicio 1: Límite algebraico</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Enunciado -->
+                    <div class="col-lg-6">
+                        <h4>Enunciado</h4>
+                        <p>Calcula el siguiente límite:</p>
+                        <div class="bg-white p-3 rounded border mb-3">
+                            \[ \lim_{x \to 2} \frac{x^2 - 4}{x - 2} \]
+                        </div>
+                        <div class="mb-3">
+                            <label for="solucion1" class="form-label">Tu solución:</label>
+                            <input type="text" class="form-control" id="solucion1" placeholder="Ingresa el resultado">
+                        </div>
+                        <button class="btn btn-sm btn-primary comprobar-btn">Comprobar</button>
+                        <div class="solucion-correcta mt-2 d-none">
+                            <div class="alert alert-success mt-2">
+                                ¡Correcto! El resultado es 4.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GeoGebra Embed -->
+                    <div class="col-lg-6 mt-3 mt-lg-0">
+                        <h4>Solución interactiva</h4>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.geogebra.org/material/iframe/id/ejemplo-limite" 
+                                    allowfullscreen style="border: 1px solid #e4e4e4;"></iframe>
+                        </div>
+                        <div class="mt-2 text-end">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Abrir en GeoGebra</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Ver explicación</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="card mb-4 shadow-sm ejercicio-card">
+            <div class="card-header bg-success text-white">
+                <h3 class="h5 mb-0">Ejercicio 2: Derivada de función</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Enunciado -->
+                    <div class="col-lg-6">
+                        <h4>Enunciado</h4>
+                        <p>Encuentra la derivada de la siguiente función:</p>
+                        <div class="bg-white p-3 rounded border mb-3">
+                            \[ f(x) = 3x^4 - 2x^2 + 5x - 1 \]
+                        </div>
+                        <div class="mb-3">
+                            <label for="solucion2" class="form-label">Tu solución:</label>
+                            <input type="text" class="form-control" id="solucion2" placeholder="Ingresa f'(x)">
+                        </div>
+                        <button class="btn btn-sm btn-success comprobar-btn">Comprobar</button>
+                        <div class="solucion-correcta mt-2 d-none">
+                            <div class="alert alert-success mt-2">
+                                ¡Correcto! La derivada es \( f'(x) = 12x^3 - 4x + 5 \)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GeoGebra Embed -->
+                    <div class="col-lg-6 mt-3 mt-lg-0">
+                        <h4>Visualización de la derivada</h4>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.geogebra.org/material/iframe/id/ejemplo-derivada" 
+                                    allowfullscreen style="border: 1px solid #e4e4e4;"></iframe>
+                        </div>
+                        <div class="mt-2 text-end">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Abrir en GeoGebra</a>
+                            <a href="#" class="btn btn-sm btn-outline-success">Ver paso a paso</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 3 - Optimización -->
+        <div class="card shadow-sm ejercicio-card">
+            <div class="card-header bg-warning text-dark">
+                <h3 class="h5 mb-0">Ejercicio 3: Problema de optimización</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Enunciado -->
+                    <div class="col-lg-6">
+                        <h4>Enunciado</h4>
+                        <p>Se desea construir una caja sin tapa con una pieza cuadrada de cartón de 20 cm de lado, 
+                           cortando cuadrados iguales en las esquinas y doblando los lados. ¿Qué tamaño deben tener 
+                           los cuadrados cortados para maximizar el volumen?</p>
+                        
+                        <div class="accordion mb-3" id="pistasOptimizacion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pista1">
+                                        Pista 1: Configura el problema
+                                    </button>
+                                </h2>
+                                <div id="pista1" class="accordion-collapse collapse" data-bs-parent="#pistasOptimizacion">
+                                    <div class="accordion-body">
+                                        Si cortas cuadrados de lado \( x \), las dimensiones de la caja serán...
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pista2">
+                                        Pista 2: Función volumen
+                                    </button>
+                                </h2>
+                                <div id="pista2" class="accordion-collapse collapse" data-bs-parent="#pistasOptimizacion">
+                                    <div class="accordion-body">
+                                        La función volumen será \( V(x) = x(20 - 2x)^2 \)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="solucion3" class="form-label">Tu solución (en cm):</label>
+                            <input type="text" class="form-control" id="solucion3" placeholder="Tamaño óptimo del cuadrado">
+                        </div>
+                        <button class="btn btn-sm btn-warning comprobar-btn">Comprobar</button>
+                        <div class="solucion-correcta mt-2 d-none">
+                            <div class="alert alert-success mt-2">
+                                ¡Correcto! El tamaño óptimo es aproximadamente 3.33 cm
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GeoGebra Embed -->
+                    <div class="col-lg-6 mt-3 mt-lg-0">
+                        <h4>Modelo interactivo</h4>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.geogebra.org/material/iframe/id/ejemplo-optimizacion" 
+                                    allowfullscreen style="border: 1px solid #e4e4e4;"></iframe>
+                        </div>
+                        <div class="mt-2 text-end">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Abrir en GeoGebra</a>
+                            <a href="#" class="btn btn-sm btn-outline-warning">Ver solución completa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
+<!-- Script para funcionalidad de comprobación -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const botonesComprobar = document.querySelectorAll('.comprobar-btn');
+    
+    botonesComprobar.forEach(boton => {
+        boton.addEventListener('click', function() {
+            const card = this.closest('.ejercicio-card');
+            const solucion = card.querySelector('.solucion-correcta');
+            solucion.classList.remove('d-none');
+            
+            // Desplazamiento suave a la solución
+            solucion.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    });
+});
+</script>
