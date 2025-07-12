@@ -4,6 +4,6 @@ from django.shortcuts import render
 # Create your views here.
 def index(request):
     
-    contexto = {'hola'}
-    return render(request, 'main/index.html', contexto)
+    
+    return render(request, 'main/index.html')
 # Create your views here.
