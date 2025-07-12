@@ -3,7 +3,7 @@
             <div class="row align-items-center">
                 <!-- Sección 1: Logo + 3 iconos (3/12) -->
                 <div class="col-md-3 d-flex align-items-center">
-                    <a href="{% url 'main:index'%}" class="me-3">
+                    <a href="#" class="me-3">
                         <i class="fas fa-rocket fa-2x text-primary"></i> <!-- Logo principal -->
                     </a>
                     <div class="d-flex">
@@ -25,33 +25,7 @@
 
                 <!-- Sección 3: 3 botones (5/12) -->
 
-                <div class="col-md-5 d-flex justify-content-end">
-
-                    
-
-                    {% if request.user.is_authenticated and request.user.id %}
-
-                    <a href="{% url 'users:perfil_usuario' user_id=request.user.id %}">
-                        <i class="fas fa-user me-1"></i> Perfil
-                    </a>
-
-                    <a href="{%url 'users:logout'%}">
-                        <i class="fas fa-user me-1"></i> Cerrar Sesion
-                    </a>
-
-                    {%else%}
-
-                    <a href="{%url 'users:register'%}">
-                        <i class="fas fa-user me-1"></i> Regitrarse
-                    </a>
-
-                    <a href="{%url 'users:login'%}">
-                        <i class="fas fa-user me-1"></i> Iniciar Sesion
-                    </a>
-                    
-                    {%endif%}
-                    
-                </div>
+               <h1>hola munfo</h1>
             </div>
         </div>
     </header>
