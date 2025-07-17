@@ -1,0 +1,250 @@
+    {% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="row">
+            <!-- Navegación -->
+            <div class="col-lg-3">
+                <div class="card mb-4 sticky-top" style="top: 20px;">
+                    <div class="card-header bg-primary text-white fw-bold">
+                        <i class="bi bi-bookmarks-fill me-2"></i>Contenidos
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#maximos-minimos">Máximos y mínimos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#optimizacion">Optimización</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#razones-cambio">Razones de cambio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#ejercicios">Ejercicios prácticos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#recursos">Recursos adicionales</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="col-lg-9">
+                <!-- Máximos y mínimos -->
+                <section id="maximos-minimos">
+                    <div class="card geogebra-card">
+                        <div class="card-body">
+                            <h2 class="topic-header">Máximos y mínimos</h2>
+                            <p>Los puntos máximos y mínimos de una función son valores críticos donde la función cambia su comportamiento (crecimiento/decrecimiento). GeoGebra permite identificarlos visual y analíticamente.</p>
+                            
+                            <h4 class="mt-4">Actividad 1: Identificación de extremos</h4>
+                            <ol>
+                                <li class="mb-2">Ingresa una función polinómica:
+                                    <div class="command-box">f(x) = x^3 - 3x^2 + 2</div>
+                                </li>
+                                <li class="mb-2">Encuentra los puntos críticos:
+                                    <div class="command-box">Extremos = PuntoRaíz(Derivada(f))</div>
+                                </li>
+                                <li class="mb-2">Clasifica cada punto crítico:
+                                    <div class="command-box">DerivadaSegunda(f, x(Extremos))</div>
+                                    <p class="text-muted mt-1">Si f''(a) > 0 → mínimo local; si f''(a) < 0 → máximo local</p>
+                                </li>
+                                <li>Visualiza los puntos en la gráfica</li>
+                            </ol>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <h5>Comandos útiles</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><code>Extremo(f, a, b)</code> - Extremos en [a,b]</li>
+                                        <li class="list-group-item"><code>PuntoRaíz(f')</code> - Puntos críticos</li>
+                                        <li class="list-group-item"><code>DerivadaSegunda(f)</code> - Segunda derivada</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://www.geogebra.org/resource/yd7bx5pe/yd7bx5pe.png" alt="Extremos en GeoGebra" class="example-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Optimización -->
+                <section id="optimizacion" class="mt-5">
+                    <div class="card geogebra-card">
+                        <div class="card-body">
+                            <h2 class="topic-header">Problemas de optimización</h2>
+                            <p>La optimización consiste en encontrar valores máximos o mínimos de una función bajo ciertas restricciones. Sigue estos pasos generales:</p>
+                            
+                            <div class="app-card">
+                                <h4>Ejemplo: Caja de máximo volumen</h4>
+                                <p>De una lámina cuadrada de 20 cm de lado, se cortan cuadrados en las esquinas para formar una caja. ¿Qué tamaño maximiza el volumen?</p>
+                                
+                                <ol>
+                                    <li class="mb-2">Define la función de volumen:
+                                        <div class="command-box">V(x) = x*(20-2x)^2</div>
+                                    </li>
+                                    <li class="mb-2">Encuentra el dominio (0 < x < 10)</li>
+                                    <li class="mb-2">Calcula los puntos críticos:
+                                        <div class="command-box">soluciones = PuntoRaíz(Derivada(V))</div>
+                                    </li>
+                                    <li class="mb-2">Evalúa en los extremos y puntos críticos:
+                                        <div class="command-box">Valor(V, {0, 10, x(soluciones)})</div>
+                                    </li>
+                                    <li>Interpreta los resultados</li>
+                                </ol>
+                                
+                                <div class="alert alert-info mt-3">
+                                    <strong>Tip:</strong> Usa <code>Slider</code> para visualizar cómo cambia la caja:
+                                    <div class="command-box">a = Slider(0, 10, 0.1)</div>
+                                    <div class="command-box">Polígono((a,a), (20-a,a), (20-a,20-a), (a,20-a))</div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Problemas clásicos de optimización</h4>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="app-card">
+                                        <h5>Área máxima</h5>
+                                        <p>Rectángulo con perímetro fijo</p>
+                                        <code>A(x) = x*(P/2 - x)</code>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="app-card">
+                                        <h5>Costo mínimo</h5>
+                                        <p>Dimensiones de contenedor</p>
+                                        <code>C(x) = material + transporte</code>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="app-card">
+                                        <h5>Distancia mínima</h5>
+                                        <p>Punto a curva más cercano</p>
+                                        <code>D(x) = √[(x-x₀)²+(f(x)-y₀)²]</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Razones de cambio -->
+                <section id="razones-cambio" class="mt-5">
+                    <div class="card geogebra-card">
+                        <div class="card-body">
+                            <h2 class="topic-header">Razones de cambio relacionadas</h2>
+                            <p>Estudian cómo cambian distintas variables relacionadas entre sí a través del tiempo.</p>
+                            
+                            <div class="formula-box">
+                                Si y = f(x) entonces dy/dt = f'(x) * dx/dt
+                            </div>
+                            
+                            <h4 class="mt-4">Actividad: Globo que se infla</h4>
+                            <p>Un globo esférico se infla a razón de 100 cm³/s. ¿Cómo cambia el radio cuando r=5 cm?</p>
+                            
+                            <ol>
+                                <li class="mb-2">Fórmula de volumen:
+                                    <div class="command-box">V(r) = (4/3)πr³</div>
+                                </li>
+                                <li class="mb-2">Deriva implícitamente respecto al tiempo:
+                                    <div class="command-box">dV/dt = 4πr² dr/dt</div>
+                                </li>
+                                <li class="mb-2">Sustituye valores conocidos:
+                                    <div class="command-box">100 = 4π(5)² dr/dt</div>
+                                </li>
+                                <li>Resuelve para dr/dt</li>
+                            </ol>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <h5>Simulación en GeoGebra</h5>
+                                    <ol>
+                                        <li class="mb-2">Crea un control deslizante para el tiempo:
+                                            <div class="command-box">t = Slider(0, 10, 0.1)</div>
+                                        </li>
+                                        <li class="mb-2">Define el radio en función del tiempo:
+                                            <div class="command-box">r(t) = RaízCúbica(3*100*t/(4*π))</div>
+                                        </li>
+                                        <li>Anima el control deslizante</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://www.geogebra.org/resource/zm7bq7v9/zm7bq7v9.png" alt="Razón de cambio" class="example-img">
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4">Problemas típicos</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">Escaleras que resbalan</li>
+                                <li class="list-group-item">Nivel de líquido en tanques</li>
+                                <li class="list-group-item">Sombras cambiantes</li>
+                                <li class="list-group-item">Distancias entre móviles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ejercicios prácticos -->
+                <section id="ejercicios" class="mt-5">
+                    <div class="card geogebra-card">
+                        <div class="card-body">
+                            <h2 class="topic-header">Ejercicios prácticos</h2>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="app-card">
+                                        <h5>Máximos y mínimos</h5>
+                                        <p>Para f(x) = x⁴ - 4x³:</p>
+                                        <ol>
+                                            <li>Encuentra todos los puntos críticos</li>
+                                            <li>Clasifícalos en máximos o mínimos</li>
+                                            <li>Determina intervalos de crecimiento</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="app-card">
+                                        <h5>Optimización</h5>
+                                        <p>Se desea construir un corral rectangular con 100 m de cerca. Un lado ya tiene pared. ¿Qué dimensiones maximizan el área?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="app-card">
+                                        <h5>Razones de cambio</h5>
+                                        <p>Un avión vuela a 600 km/h a altitud constante 10 km. ¿Con qué rapidez cambia el ángulo de elevación cuando está a 20 km de distancia horizontal?</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="app-card">
+                                        <h5>Problema integrador</h5>
+                                        <p>Una empresa determina que el costo de producir x unidades es C(x) = 500 + 20x + 0.1x². El precio de venta es p(x) = 100 - 0.5x. Encuentra:</p>
+                                        <ul>
+                                            <li>Producción para máximo beneficio</li>
+                                            <li>Beneficio máximo</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recursos adicionales -->
+                
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

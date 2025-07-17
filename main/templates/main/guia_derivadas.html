@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+   <!-- Contenido principal -->
+    <div class="container">
+        <div class="row">
+            <!-- Navegación -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Temas de Derivadas</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Conceptos básicos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Derivada en un punto</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Función derivada</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Recta tangente</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Aplicaciones</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="col-md-9">
+                <!-- Concepto -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">¿Qué es una derivada?</h2>
+                        <p class="card-text">
+                            La derivada de una función en un punto representa la pendiente de la recta tangente a la curva en ese punto. Geogebra nos permite calcular derivadas simbólicamente y visualizar su significado geométrico.
+                        </p>
+                        <div class="formula-box">
+                            f'(x) = lim<sub>h→0</sub> [f(x+h) - f(x)] / h
+                        </div>
+                        <div class="text-center mb-3">
+                            <img src="{%static 'images/figura-2b_0.gif'%}" alt="Visualización de derivada" class="example-img img-fluid" style="max-width: 80%;">
+                            <p class="text-muted mt-2">Interpretación geométrica de la derivada</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actividad 1 -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Actividad 1: Derivada en un punto</h3>
+                        <ol>
+                            <li class="mb-2">Abre GeoGebra y selecciona "Vista Algebraica" y "Vista Gráfica"</li>
+                            <li class="mb-2">Ingresa la función:
+                                <div class="command-box">f(x) = x^2</div>
+                            </li>
+                            <li class="mb-2">Calcula la derivada en x=1 usando:
+                                <div class="command-box">Derivada(f, 1)</div>
+                            </li>
+                            <li class="mb-2">Grafica la recta tangente en x=1:
+                                <div class="command-box">Tangente(1, f)</div>
+                            </li>
+                            <li>Compara el valor de la derivada con la pendiente de la recta tangente</li>
+                        </ol>
+                        
+                        
+                        <button onclick="window.open('{% static 'images/derivadaas.gif' %}', '_blank', 'width=600,height=400')">
+                        Ver animacion
+                        </button> 
+                        
+
+
+                    </div>
+                </div>
+
+                <!-- Actividad 2 -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Actividad 2: Función derivada</h3>
+                        <ol>
+                            <li class="mb-2">Continúa con la función f(x) = x²</li>
+                            <li class="mb-2">Obtén la función derivada:
+                                <div class="command-box">g(x) = Derivada(f)</div>
+                            </li>
+                            <li class="mb-2">Observa cómo cambia la función derivada al modificar f(x)</li>
+                            <li class="mb-2">Prueba con otras funciones:
+                                <div class="command-box">f(x) = sin(x)</div>
+                                <div class="command-box">f(x) = e^x</div>
+                                <div class="command-box">f(x) = ln(x)</div>
+                            </li>
+                        </ol>
+                        <button onclick="window.open('{% static 'images/derivadas2.gif' %}', '_blank', 'width=600,height=400')">
+                        Ver animacion
+                        </button> 
+                        <div class="alert alert-success">
+                            <strong>Tip:</strong> Usa el comando <code>Relación(g, Derivada(f))</code> para mantener g(x) como la derivada de f(x) aunque modifiques f.
+                        </div>
+                    </div>
+                </div>
+                 
+                <!-- Comandos importantes -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Comandos esenciales para derivadas</h3>
+                        <table class="table table-bordered">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>Comando</th>
+                                    <th>Descripción</th>
+                                    <th>Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>Derivada(f)</code></td>
+                                    <td>Función derivada de f(x)</td>
+                                    <td><code>Derivada(x^2)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Derivada(f, a)</code></td>
+                                    <td>Derivada en x=a</td>
+                                    <td><code>Derivada(sin(x), π/2)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Tangente(a, f)</code></td>
+                                    <td>Recta tangente en x=a</td>
+                                    <td><code>Tangente(0, e^x)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>Pendiente(t)</code></td>
+                                    <td>Pendiente de una recta</td>
+                                    <td><code>Pendiente(Tangente(1, x^3))</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Ejercicios prácticos -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Ejercicios prácticos</h3>
+                        <div class="mb-3">
+                            <h5>Ejercicio 1</h5>
+                            <p>Para la función <code>f(x) = x^3 - 3x</code>:</p>
+                            <ul>
+                                <li>Encuentra su función derivada</li>
+                                <li>Determina la pendiente en x=0, x=1 y x=-1</li>
+                                <li>Grafica las rectas tangentes en esos puntos</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <h5>Ejercicio 2</h5>
+                            <p>Investiga la relación entre una función y su derivada:</p>
+                            <ol>
+                                <li>Crea una función polinómica de grado 3</li>
+                                <li>Grafica la función y su derivada</li>
+                                <li>Identifica los puntos críticos (donde f'(x)=0)</li>
+                                <li>¿Qué ocurre con la función original en esos puntos?</li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Aplicaciones -->
+                <div class="card geogebra-card mb-4">
+                    <div class="card-body">
+                        <h3 class="card-title">Aplicaciones de las derivadas</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Optimización</h5>
+                                <p>Encuentra máximos y mínimos de funciones:</p>
+                                <div class="command-box">Extremo(f, a, b)</div>
+                                <img src="https://www.geogebra.org/resource/yd7bx5pe/yd7bx5pe.png" class="img-fluid mt-2 example-img" alt="Optimización">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Velocidad instantánea</h5>
+                                <p>Si s(t) representa posición, s'(t) es la velocidad:</p>
+                                <div class="command-box">v(t) = Derivada(s(t))</div>
+                                <img src="https://www.geogebra.org/resource/mwkv6jzq/mwkv6jzq.png" class="img-fluid mt-2 example-img" alt="Velocidad">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <script>
+        function abrirModal() {
+            document.getElementById('miModal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('miModal').style.display = 'none';
+        }
+
+        // Cerrar el modal si se hace clic fuera de la imagen
+        window.onclick = function(event) {
+            var modal = document.getElementById('miModal');
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+    </script>
+{%endblock%}

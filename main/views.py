@@ -1,20 +1,17 @@
 from django.shortcuts import render
-
-
 # Create your views here.
-def index(request):
-    
-    
+def index(request):  
     return render(request, 'main/index.html')
-# Create your views here.
-# Create your views here.
-def guia(request):
-    
-    
+
+def guia(request): 
     return render(request, 'main/guia.html')
-# Create your views here.
+
 def ejercicios(request):
-    
-    
     return render(request, 'main/ejercicios.html')
-# Create your views here.
+
+def guia_derivadas(request):
+    return render(request, 'main/guia_derivadas.html')
+def guia_optimizacion(request):
+    return render(request,'main/guia_optimizacion.html')
+def ejercicios_derivadas(request):
+    return render(request,'main/ejercicios_derivadas.html')

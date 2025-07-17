@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+{% block title %}Ejercicios de Derivadas y Aplicaciones | GeoGebra{% endblock %}
+{% load static %}
+
+{% block content %}
+<!-- Header de Ejercicios -->
+<section class="py-5 bg-gradient-primary text-white">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">Ejercicios de Derivadas y Aplicaciones</h1>
+        <p class="lead mb-4">Colección de problemas para practicar el cálculo diferencial con apoyo visual</p>
+        
+    </div>
+</section>
+
+<!-- Ejercicios Básicos -->
+<section class="py-5" id="basicos">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold border-bottom pb-2 d-inline-block">Ejercicios Básicos de Derivación</h2>
+            <p class="lead mt-3">Domina las técnicas fundamentales</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Ejercicio 1 -->
+            <div class="col-md-6">
+                <div class="card exercise-card h-100">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="h5 mb-0">Derivadas Directas</h3>
+                        <span class="badge bg-light text-dark">Nivel 1</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="problem-statement p-3 mb-3 bg-light rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Calcule la derivada de las siguientes funciones:</p>
+                            <ol type="a">
+                                <li>\( f(x) = 3x^4 - 2x^3 + 5x - 7 \)</li>
+                                <li>\( g(x) = \sqrt{x} + \frac{1}{x^2} \)</li>
+                                <li>\( h(x) = e^x \cos(x) \)</li>
+                            </ol>
+                        </div>
+                        <div class="solution-toggle text-end">
+                            <button class="btn btn-sm btn-outline-primary solution-btn" data-target="solution1">
+                                Mostrar Solución
+                            </button>
+                        </div>
+                        <div class="solution-content mt-3 p-3 bg-light rounded" id="solution1" style="display: none;">
+                            <p class="fw-bold">Solución:</p>
+                            <ol type="a">
+                                <li>\( f'(x) = 12x^3 - 6x^2 + 5 \)</li>
+                                <li>\( g'(x) = \frac{1}{2\sqrt{x}} - \frac{2}{x^3} \)</li>
+                                <li>\( h'(x) = e^x \cos(x) - e^x \sin(x) \) (Regla del producto)</li>
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2 -->
+            <div class="col-md-6">
+                <div class="card exercise-card h-100">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="h5 mb-0">Regla de la Cadena</h3>
+                        <span class="badge bg-light text-dark">Nivel 2</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="problem-statement p-3 mb-3 bg-light rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Derive las siguientes funciones compuestas:</p>
+                            <ol type="a">
+                                <li>\( f(x) = \sin(3x^2) \)</li>
+                                <li>\( g(x) = \ln(\sqrt{x^3 + 1}) \)</li>
+                                <li>\( h(x) = (2x - 5)^4 \)</li>
+                            </ol>
+                        </div>
+                        <div class="solution-toggle text-end">
+                            <button class="btn btn-sm btn-outline-primary solution-btn" data-target="solution2">
+                                Mostrar Solución
+                            </button>
+                        </div>
+                        <div class="solution-content mt-3 p-3 bg-light rounded" id="solution2" style="display: none;">
+                            <p class="fw-bold">Solución:</p>
+                            <ol type="a">
+                                <li>\( f'(x) = \cos(3x^2) \cdot 6x \)</li>
+                                <li>\( g'(x) = \frac{3x^2}{2(x^3 + 1)} \)</li>
+                                <li>\( h'(x) = 8(2x - 5)^3 \)</li>
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ejercicios Aplicados -->
+<section class="py-5 bg-light" id="aplicados">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold border-bottom pb-2 d-inline-block">Problemas Aplicados</h2>
+            <p class="lead mt-3">Contextos reales para el cálculo diferencial</p>
+        </div>
+
+        <!-- Problema de Optimización -->
+        <div class="card mb-4 exercise-card">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h3 class="h5 mb-0">Optimización: Diseño de Envases</h3>
+                <span class="badge bg-light text-dark">Aplicación</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="problem-statement p-3 mb-3 bg-white rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Una empresa desea fabricar latas cilíndricas para refresco con capacidad de 355 ml. 
+                            Determine las dimensiones (radio y altura) que minimicen la cantidad de material utilizado.</p>
+                            
+                            <div class="hint p-2 bg-info-light rounded mt-3">
+                                <p class="mb-0 fw-bold"><i class="bi bi-lightbulb me-2"></i>Sugerencia:</p>
+                                <p>La superficie total incluye las dos tapas circulares y la cara lateral.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.geogebra.org/material/iframe/id/xt5fwgpc/width/600/height/400/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" 
+                                    allowfullscreen class="rounded"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-toggle text-end mt-3">
+                    <button class="btn btn-outline-success solution-btn" data-target="solution3">
+                        Mostrar Solución Completa
+                    </button>
+                </div>
+                
+                <div class="solution-content mt-3 p-3 bg-white rounded" id="solution3" style="display: none;">
+                    <p class="fw-bold">Solución:</p>
+                    <ol>
+                        <li>Exprese el volumen: \( V = \pi r^2 h = 355 \) → \( h = \frac{355}{\pi r^2} \)</li>
+                        <li>Superficie total: \( S = 2\pi r^2 + 2\pi r h \)</li>
+                        <li>Sustituya h: \( S(r) = 2\pi r^2 + \frac{710}{r} \)</li>
+                        <li>Derive: \( S'(r) = 4\pi r - \frac{710}{r^2} \)</li>
+                        <li>Encuentre el punto crítico: \( S'(r) = 0 \) → \( r = \sqrt[3]{\frac{710}{4\pi}} \approx 3.84 \) cm</li>
+                        <li>Calcule h: \( h \approx \frac{355}{\pi (3.84)^2} \approx 7.68 \) cm</li>
+                    </ol>
+                    <p class="fst-italic mt-2">Las dimensiones óptimas son aproximadamente radio 3.84 cm y altura 7.68 cm.</p>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Problema de Razones de Cambio -->
+        <div class="card exercise-card">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h3 class="h5 mb-0">Razones de Cambio: Crecimiento de Población</h3>
+                <span class="badge bg-light text-dark">Aplicación</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="problem-statement p-3 mb-3 bg-white rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Un modelo predice que la población de cierta ciudad crece según \( P(t) = 50,000 e^{0.03t} \), 
+                            donde t es el tiempo en años. Calcule:</p>
+                            <ol>
+                                <li>La tasa de crecimiento instantáneo en t=10 años</li>
+                                <li>¿En qué porcentaje está creciendo la población cuando t=10?</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ratio ratio-16x9">
+                            <img src="https://www.geogebra.org/resource/mwkv6jzq/mwkv6jzq.png" alt="Crecimiento poblacional" class="rounded">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-toggle text-end mt-3">
+                    <button class="btn btn-outline-success solution-btn" data-target="solution4">
+                        Mostrar Solución Completa
+                    </button>
+                </div>
+                
+                <div class="solution-content mt-3 p-3 bg-white rounded" id="solution4" style="display: none;">
+                    <p class="fw-bold">Solución:</p>
+                    <ol>
+                        <li>Derivada: \( P'(t) = 50,000 \cdot 0.03 e^{0.03t} = 1,500 e^{0.03t} \)</li>
+                        <li>En t=10: \( P'(10) = 1,500 e^{0.3} \approx 2,024 \) personas/año</li>
+                        <li>Población en t=10: \( P(10) \approx 67,493 \)</li>
+                        <li>Porcentaje de crecimiento: \( \frac{P'(10)}{P(10)} \times 100 \approx 3\% \) anual</li>
+                    </ol>
+                    
+                    <div class="alert alert-info mt-3">
+                        <p class="mb-0">La tasa porcentual de crecimiento es constante (3%) porque es un modelo exponencial.</p>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ejercicios Desafío -->
+<section class="py-5" id="desafios">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold border-bottom pb-2 d-inline-block">Desafíos de Derivación</h2>
+            <p class="lead mt-3">Problemas avanzados para profundizar tu comprensión</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Desafío 1 -->
+            <div class="col-md-6">
+                <div class="card exercise-card h-100 border-warning">
+                    <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                        <h3 class="h5 mb-0">Derivación Implícita</h3>
+                        <span class="badge bg-dark text-white">Desafío</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="problem-statement p-3 mb-3 bg-light rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Para la curva definida por \( x^3 + y^3 = 6xy \) (Folium de Descartes):</p>
+                            <ol>
+                                <li>Encuentre \( \frac{dy}{dx} \) usando derivación implícita</li>
+                                <li>Determine la ecuación de la recta tangente en el punto (3,3)</li>
+                                <li>¿En qué otros puntos la tangente es horizontal?</li>
+                            </ol>
+                        </div>
+                        <div class="solution-toggle text-end">
+                            <button class="btn btn-sm btn-outline-warning solution-btn" data-target="solution5">
+                                Mostrar Solución
+                            </button>
+                        </div>
+                        <div class="solution-content mt-3 p-3 bg-light rounded" id="solution5" style="display: none;">
+                            <p class="fw-bold">Solución:</p>
+                            <ol>
+                                <li>Derivando implícitamente: \( 3x^2 + 3y^2 y' = 6y + 6x y' \)</li>
+                                <li>Despejando: \( y' = \frac{2y - x^2}{y^2 - 2x} \)</li>
+                                <li>En (3,3): \( y' = -1 \) → Tangente: \( y = -x + 6 \)</li>
+                                <li>Tangente horizontal cuando \( y' = 0 \) → \( 2y = x^2 \)</li>
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desafío 2 -->
+            <div class="col-md-6">
+                <div class="card exercise-card h-100 border-warning">
+                    <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                        <h3 class="h5 mb-0">Optimización Avanzada</h3>
+                        <span class="badge bg-dark text-white">Desafío</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="problem-statement p-3 mb-3 bg-light rounded">
+                            <p class="fw-bold">Problema:</p>
+                            <p>Un triángulo isósceles está inscrito en un círculo de radio R. Encuentre las dimensiones del triángulo con:</p>
+                            <ol>
+                                <li>Área máxima</li>
+                                <li>Perímetro máximo</li>
+                            </ol>
+                            <p>¿Son iguales las soluciones?</p>
+                        </div>
+                        <div class="solution-toggle text-end">
+                            <button class="btn btn-sm btn-outline-warning solution-btn" data-target="solution6">
+                                Mostrar Solución
+                            </button>
+                        </div>
+                        <div class="solution-content mt-3 p-3 bg-light rounded" id="solution6" style="display: none;">
+                            <p class="fw-bold">Solución:</p>
+                            <ol>
+                                <li>Área máxima: Triángulo equilátero (lado \( R\sqrt{3} \))</li>
+                                <li>Perímetro máximo: Triángulo degenerado (altura ≈ 0)</li>
+                                <li>Las soluciones son diferentes</li>
+                            </ol>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<!-- MathJax para fórmulas matemáticas -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle para soluciones
+    document.querySelectorAll('.solution-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            const solution = document.getElementById(target);
+            
+            if (solution.style.display === 'none') {
+                solution.style.display = 'block';
+                this.textContent = 'Ocultar Solución';
+            } else {
+                solution.style.display = 'none';
+                this.textContent = 'Mostrar Solución';
+            }
+        });
+    });
+    
+    // Enlaces a GeoGebra
+    document.querySelectorAll('.geo-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const func = this.getAttribute('data-func');
+            alert(`Redirigiendo a GeoGebra con función: ${func}`);
+            // Aquí iría la lógica para abrir GeoGebra con la función
+        });
+    });
+    
+    console.log("Página de ejercicios de derivadas cargada");
+});
+</script>
+{% endblock %}
